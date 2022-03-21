@@ -47,7 +47,8 @@ let
     WINEDLLOVERRIDES="winemac.drv=d" WINEDEBUG=warn-all,fixme-all,-menubuilder,-mscoree,-ole,-secur32,-winediag WINEPREFIX=$TMP ${wine}/bin/wine64 $REMOTE_ISERV/remote-iserv.exe tmp $PORT &
     (>&2 echo "---| remote-iserv should have started on $PORT")
     RISERV_PID="$!"
-    ${iserv-proxy}/bin/iserv-proxy $@ 127.0.0.1 "$PORT"
+    (>&2 echo "ABOUT TO iserv-proxy w/args $@")
+    ${iserv-proxy}/bin/iserv-proxy 127.0.0.1 "$PORT" -v $@
     (>&2 echo "---> killing remote-iserv...")
     kill $RISERV_PID
   '';

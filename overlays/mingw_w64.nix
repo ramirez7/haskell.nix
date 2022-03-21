@@ -44,7 +44,7 @@ let
       ln -s "$l" "''${l#lib}"
     done
     )
-    WINEDLLOVERRIDES="winemac.drv=d" WINEDEBUG=warn-all,fixme-all,-menubuilder,-mscoree,-ole,-secur32,-winediag WINEPREFIX=$TMP ${wine}/bin/wine64 $REMOTE_ISERV/remote-iserv.exe tmp $PORT &
+    WINEDLLOVERRIDES="winemac.drv=d" WINEDEBUG=warn-all,fixme-all,-menubuilder,-mscoree,-ole,-secur32,-winediag WINEPREFIX=$TMP ${wine}/bin/wine64 $REMOTE_ISERV/remote-iserv.exe tmp $PORT -v &
     (>&2 echo "---| remote-iserv should have started on $PORT")
     RISERV_PID="$!"
     (>&2 echo "ABOUT TO iserv-proxy w/args $@")

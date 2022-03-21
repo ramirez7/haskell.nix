@@ -48,7 +48,7 @@ let
     (>&2 echo "---| remote-iserv should have started on $PORT")
     RISERV_PID="$!"
     (>&2 echo "ABOUT TO iserv-proxy w/args $@")
-    ${iserv-proxy}/bin/iserv-proxy 127.0.0.1 "$PORT" -v $@
+    ${iserv-proxy}/bin/iserv-proxy $@ 127.0.0.1 "$PORT" -v
     (>&2 echo "---> killing remote-iserv...")
     kill $RISERV_PID
   '';

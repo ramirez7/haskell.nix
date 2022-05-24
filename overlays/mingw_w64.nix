@@ -5,6 +5,7 @@
 , writeScriptBin
 , wine
 , mingw_w64_pthreads
+, buildPackages
 , iserv-proxy
 , remote-iserv
 , gmp
@@ -64,6 +65,7 @@ let
     "-L${mingw_w64_pthreads}/lib"
     "-L${mingw_w64_pthreads}/bin"
     "-L${gmp}/lib"
+    "-L${buildPackages.gcc.cc}/x86_64-w64-mingw32/lib"
     ]);
 
   ################################################################################

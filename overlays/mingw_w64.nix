@@ -6,6 +6,7 @@
 , wine
 , mingw_w64_pthreads
 , buildPackages
+, windows
 , iserv-proxy
 , remote-iserv
 , gmp
@@ -40,6 +41,7 @@ let
     # START ARMANDO TESTING
     echo "LINKING libgcc_s_seh-1.dll..."
     ln -sf "${buildPackages.gcc.cc}/x86_64-w64-mingw32/lib/libgcc_s_seh-1.dll" $REMOTE_ISERV
+    ln -sf "${windows.mcfgthreads}/bin/mcfgthread-12.dll" $REMOTE_ISERV
     # END ARMANDO TESTING
 
     # Some DLLs have a `lib` prefix but we attempt to load them without the prefix.

@@ -46,6 +46,7 @@ final: prev:
           inherit (pkgs.windows) mingw_w64_pthreads;
           inherit (pkgs) gmp;
           inherit (pkgs) buildPackages;
+          inherit (pkgs) windows;
           inherit (pkgs.buildPackages) symlinkJoin;
           # iserv-proxy needs to come from the buildPackages, as it needs to run on the
           # build host.

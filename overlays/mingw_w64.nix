@@ -36,6 +36,12 @@ let
       find "$p" -iname '*.dll' -exec ln -sf {} $REMOTE_ISERV \;
       find "$p" -iname '*.dll.a' -exec ln -sf {} $REMOTE_ISERV \;
     done
+
+    # START ARMANDO TESTING
+    echo "LINKING libgcc_s_seh-1.dll..."
+    ln -sf "${buildPackages.gcc.cc}/x86_64-w64-mingw32/lib/libgcc_s_seh-1.dll" $REMOTE_ISERV
+    # END ARMANDO TESTING
+
     # Some DLLs have a `lib` prefix but we attempt to load them without the prefix.
     # This was a problem for `double-conversion` package when used in TH code.
     # Creating links from the `X.dll` to `libX.dll` works around this issue.
@@ -65,7 +71,7 @@ let
     "-L${mingw_w64_pthreads}/lib"
     "-L${mingw_w64_pthreads}/bin"
     "-L${gmp}/lib"
-    "-L${buildPackages.gcc.cc}/x86_64-w64-mingw32/lib"
+    #"-L${buildPackages.gcc.cc}/x86_64-w64-mingw32/lib"
     ]);
 
   ################################################################################

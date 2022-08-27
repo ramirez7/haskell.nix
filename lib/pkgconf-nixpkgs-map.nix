@@ -39,7 +39,7 @@ pkgs:
     "glib-2.0"                           = [ pkgs."glib" ];
     "GL"                                 = [ pkgs."libGL" ];
     "GLU"                                = [ pkgs."libGLU" pkgs."libGL" ];
-    "glut"                               = [ pkgs."freeglut" pkgs."libGLU" pkgs."libGL" ];
+    "glut"                               = [ pkgs."freeglut" ] ++ if pkgs.stdenv.hostPlatform.isWindows then [ ] else  [ pkgs."libGLU" pkgs."libGL" ];
     "gnome-keyring"                      = [ pkgs."gnome-keyring" ];
     "gnome-keyring-1"                    = [ pkgs."libgnome-keyring" ];
     "gnome-vfs-2.0"                      = [ pkgs."gnome-vfs" ];

@@ -122,6 +122,7 @@ in
      winmm = null; userenv = null;
      kernel32 = null; ws2_32 = null;
      opengl32 = null; glu32 = null;
+     OpenAL32 = openal;
      # this should be bundled with gcc.
      # if it's not we have more severe
      # issues anyway.
